@@ -28,11 +28,29 @@ class Home extends React.Component {
     this.setState(state);
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+
+    var email = this.state.email;
+    HomeActions.login(email);
+  }
+
   render() {
     return (
       <div className='container'>
         <h3 className='text-center'></h3>
         {/* <img className='center-block' width="80%" height="auto"  src={LogoStars} /> */}
+        <div className='usernameInput'>
+          <form onSubmit={this.handleSubmit.bind(this)}>
+            <div className={'form-group ' + this.state.emailValidationState}>
+              <label className='control-label'>Enter a Reddit username:</label>
+              <input type='text' className='form-control' ref='emailTextField' value={this.state.email}
+                      onChange={HomeActions.updateEmail} autoFocus/>
+              <span className='help-block'>{this.state.helpBlock}</span>
+            </div>
+            <button type='submit' className='btn btn-primary align-right'>Find matching subreddits</button>
+          </form>
+        </div>
       </div>
     );
   }

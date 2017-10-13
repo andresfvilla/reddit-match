@@ -7297,6 +7297,7 @@ body {
 }
 footer {
   position: absolute;
+  /* bottom: -182px; */
   bottom: 0;
   width: 100%;
   color: #fff;
