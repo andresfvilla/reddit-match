@@ -54,20 +54,6 @@ class Navbar extends React.Component {
     }
   }
 
-  loggedIn(props) {
-    const isLoggedIn = this.state.isLoggedIn;
-    if (isLoggedIn) {
-      return (<ul className='nav navbar-nav' style={{"float": "right"}}>
-                <li><Link to='/profile'>{this.state.displayName}</Link></li>
-              <li><Link to='/api/logout'>Logout</Link></li>
-              </ul>);
-    }
-    return (<ul className='nav navbar-nav' style={{"float": "right"}}>
-              <li><Link to='/login'>Login</Link></li>
-              <li><Link to='/signup'>Signup</Link></li>
-          </ul>);
-  }
-
   render() {
     return (
       <nav className='navbar navbar-default navbar-static-top'>
@@ -79,21 +65,6 @@ class Navbar extends React.Component {
             <span className='icon-bar'></span>
             <span className='icon-bar'></span>
           </button>
-          <Link to='/' className='navbar-brand'>
-            <span className={'triangles animated ' + this.state.ajaxAnimationClass}>
-              <div className='tri invert'></div>
-              <div className='tri invert'></div>
-              <div className='tri'></div>
-              <div className='tri invert'></div>
-              <div className='tri invert'></div>
-              <div className='tri'></div>
-              <div className='tri invert'></div>
-              <div className='tri'></div>
-              <div className='tri invert'></div>
-            </span>
-            SCNAVIS
-            <span className='badge badge-up badge-danger'>{this.state.onlineUsers}</span>
-          </Link>
         </div>
         <div id='navbar' className='navbar-collapse collapse'>
           <form ref='searchForm' className='navbar-form navbar-left animated' onSubmit={this.handleSubmit.bind(this)}>
@@ -105,12 +76,7 @@ class Navbar extends React.Component {
             </div>
           </form>
           <ul className='nav navbar-nav'>
-            <li><Link to='/'>Home</Link></li>
-            <li><Link to='/users'>Users</Link></li>
-            <li><Link to='/teams'>Teams</Link></li>
-            <li><Link to='/tournaments'>Tournaments</Link></li>
           </ul>
-            {this.loggedIn()}
         </div>
         </div>
       </nav>
