@@ -31,8 +31,8 @@ class Home extends React.Component {
   render() {
     return (
       <div className='container'>
-        <h3 className='text-center'>SCNAVIS.</h3>
-        <img className='center-block' width="80%" height="auto"  src={LogoStars} />
+        <h3 className='text-center'>Reddit Match.</h3>
+        {/* <img className='center-block' width="80%" height="auto"  src={LogoStars} /> */}
       </div>
     );
   }
