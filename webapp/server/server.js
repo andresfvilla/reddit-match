@@ -55,24 +55,6 @@ console.log('MongoURL:', app.config.mongo.uri);
 app.db = mongoose.connect(app.config.mongo.uri, app.config.mongo.options);
 var conn = mongoose.connection;
 
-//GridFS
-conn.once('open', function () {
-   app.gfs = Grid(conn.db, mongoose.mongo);
-
-   var options = {filename : 'default_profile.png'}; //can be done via _id as well
-   app.gfs.exist(options, function (err, found) {
-     if (err) return handleError(err);
-     if (found) {
-       console.log('File exists')
-     } else {
-       console.log('File does not exist');
-       var writestream = app.gfs.createWriteStream({
-            filename: 'default_profile.png'
-        });
-        fs.createReadStream(app.config.imageDest + 'default_profile.png').pipe(writestream);
-     }
-   });
-})
 
 
 app.use(session({

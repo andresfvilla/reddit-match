@@ -4,7 +4,7 @@ var Router        = require('react-router');
 var ReactDOM      = require('react-dom/server');
 var routes        = require('../../../client/routes');
 
-module.exports = function(app, passport) {
+module.exports = function(app) {
 
   app.use(function(req, res) {
     Router.match({ routes: routes.default, location: req.url }, function(err, redirectLocation, renderProps) {

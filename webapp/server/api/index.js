@@ -1,4 +1,4 @@
-module.exports = function(app, passport) {
+module.exports = function(app) {
     var path = require('path');
     var debug = require('debug')(app.config.debug);
 
@@ -25,7 +25,7 @@ module.exports = function(app, passport) {
     // Order matters because of route priority.
     // Client should be last since it's the catch-all
     return {
-        redditor: getAllTheThings('Redditor', app, passport),
-        client: getAllTheThings('Client', app, passport) // Must go last...
+        redditor: getAllTheThings('Redditor', app),
+        client: getAllTheThings('Client', app) // Must go last...
     };
 };

@@ -5,6 +5,12 @@ var URL = 'http://localhost:' + PORT;
 
 module.exports = {
     env: process.env.NODE_ENV || "dev",
+    redditUsername: process.env.redditUsername,
+    redditPassword: process.env.redditPassword,
+    redditClientId: process.env.redditClientId,
+    redditClientSecret: process.env.redditClientSecret,
+    redditUserAgent: process.env.redditUserAgent,
+    redditRefreshToken: process.env.redditRefreshToken,
     port: PORT,
     mongo: {
         uri: process.env.MONGO_URL || 'mongodb://localhost/scnavis'
