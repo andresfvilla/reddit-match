@@ -1,2 +1,2 @@
 # reddit-match
-Top secret
+Discover new subreddits based on your personality profile
