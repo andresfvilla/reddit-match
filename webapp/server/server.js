@@ -24,7 +24,6 @@ var fs = require('fs');
 var async = require('async');
 var xml2js = require('xml2js');
 var Grid = require('gridfs-stream');
-var User = require('./api/Users/model')
 
 
 var app = express();
@@ -32,7 +31,6 @@ const util = require('util')
 
 // Config
 app.config = require('./config/config');
-require('./config/passport')(passport);
 var PORT = app.config.port;
 
 // API Resources
@@ -84,8 +82,6 @@ app.use(session({
    saveUninitialized: true
  })); // session secret
 
-app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
 // Serve up any static files
@@ -94,7 +90,7 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
 app.use(express.static(path.join(__dirname, "../public")));
 
 //api resources
-app.api = require('./api')(app, passport);
+app.api = require('./api')(app);
 
 /**
  * Socket.io stuff.
