@@ -7551,6 +7551,28 @@ footer .thumb-md:hover {
   margin-left: 10px;
   border-radius: 6px 0 6px 6px;
 }
+
+/* footer images */
+.devImage {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+.image {
+  float: left;
+  padding-bottom: 20px;
+  padding-right: 20px;
+  text-align: center;
+}
+.contactIcon {
+  width: 20px;
+  height: 20px;
+}
+.contactIconContainer {
+  padding-right: 3px;
+}
+/* end footer images */
+
 .form-control {
   border-color: #cfdadc;
   border-radius: 2px;
