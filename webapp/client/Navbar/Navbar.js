@@ -58,23 +58,23 @@ class Navbar extends React.Component {
     return (
       <nav className='navbar navbar-default navbar-static-top'>
       <div className='container'>
-        <div className='navbar-header'>
+        {/* <div className='navbar-header'>
           <button type='button' className='navbar-toggle collapsed' data-toggle='collapse' data-target='#navbar'>
             <span className='sr-only'>Toggle navigation</span>
             <span className='icon-bar'></span>
             <span className='icon-bar'></span>
             <span className='icon-bar'></span>
           </button>
-        </div>
+        </div> */}
         <div id='navbar' className='navbar-collapse collapse'>
-          <form ref='searchForm' className='navbar-form navbar-left animated' onSubmit={this.handleSubmit.bind(this)}>
+          {/* <form ref='searchForm' className='navbar-form navbar-left animated' onSubmit={this.handleSubmit.bind(this)}>
             <div className='input-group'>
               <input type='text' className='form-control' placeholder={this.state.totalCharacters + ' characters'} value={this.state.searchQuery} onChange={NavbarActions.updateSearchQuery} />
               <span className='input-group-btn'>
                 <button className='btn btn-default' onClick={this.handleSubmit.bind(this)}><span className='glyphicon glyphicon-search'></span></button>
               </span>
             </div>
-          </form>
+          </form> */}
           <ul className='nav navbar-nav'>
           </ul>
         </div>

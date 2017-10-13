@@ -28,11 +28,12 @@ class Footer extends React.Component {
       <footer>
         <div className='container'>
           <div className='row'>
-            <div className='col-sm-5'>
-              <h3 className='lead'><strong>SCNAVIS</strong></h3>
-              <p>Tournament organizer. Come challenge friends.</p>
-              <p>what else should i put?</p>
-              <p>© 2017 Andres Villa.</p>
+            <div className='devs'>
+              <h3 className='lead'><strong></strong></h3>
+              <span><a href="https://github.ibm.com/Andres-Villa">@andres.villa</a></span>
+              <span><a href="https://github.ibm.com/gamay">@gamay</a></span>
+              <span><a href="https://github.ibm.com/loganpatino10">@lopa</a></span>
+              <h3 className='lead'><strong></strong></h3>
             </div>
           </div>
         </div>
