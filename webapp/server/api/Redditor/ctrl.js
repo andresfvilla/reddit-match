@@ -4,6 +4,8 @@ var path = require('path');
 module.exports = function(app) {
   var request = require('request');
   var snoowrap = require('snoowrap');
+  var PersonalityInsightsV3 = require('watson-developer-cloud/personality-insights/v3');
+
 
   const r = new snoowrap({
     userAgent: app.config.redditUserAgent,
@@ -17,7 +19,28 @@ module.exports = function(app) {
   app.post('/api/v1/getComments/:user', function (req, res, next) {
       console.log(r);
       //redditor.getSubmission('4j8p6d').expandReplies({limit: Infinity, depth: Infinity}).then(console.log);
-      r.getUser(req.params.user).getComments().then(console.log)
+      r.getUser(req.params.user).getComments().then(comments => {
+        var blob = comments.map(comment => comment.body).join("\n");
+        console.log(blob);
+
+        var personality_insights = new PersonalityInsightsV3({
+          username: app.config.watsonUsername,
+          password: app.config.watsonPassword,
+          version_date: app.config.watsonVersion
+        });
+
+        personality_insights.profile({
+          text: blob,
+          },
+          function (err, response) {
+            if (err)
+              console.log('error:', err);
+            else
+              console.log(JSON.stringify(response, null, 2));
+        });
+
+
+      })
   })
 };
 
