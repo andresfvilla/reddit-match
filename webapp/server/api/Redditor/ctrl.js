@@ -35,11 +35,15 @@ module.exports = function(app) {
           function (err, response) {
             if (err)
               console.log('error:', err);
-            else
+            else{
               console.log(JSON.stringify(response, null, 2));
-        });
-
-
+              res.json(
+              {
+                "comments": blob,
+                "personality_profile": response
+              })
+            }
+        })
       })
   })
 };
