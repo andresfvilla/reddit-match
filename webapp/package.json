@@ -90,6 +90,7 @@
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.6.0",
+    "watson-developer-cloud": "^2.41.1",
     "webpack": "^2.2.1",
     "xml2js": "^0.4.15"
   }
