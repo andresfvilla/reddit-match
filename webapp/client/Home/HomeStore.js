@@ -5,43 +5,49 @@ class HomeStore {
   constructor() {
     this.bindActions(HomeActions);
     this.email = '';
+    this.delta = '';
     this.password = '';
-    this.helpBlock = '';
-    this.emailValidationState = '';
+    this.response = '';
+    this.usernameValidationState = '';
     this.passwordValidationState = '';
   }
 
-  onLoginSuccess(successMessage) {
-    window.location.replace("/profile");
+  onLoginSuccess(data) {
+    // window.location.replace("/profile");
     this.displayNameValidationState = 'has-success';
-    this.helpBlock = successMessage;
+    this.response = data;
   }
 
   onLoginFail(errorMessage) {
     this.displayNameValidationState = 'has-error';
-    this.helpBlock = errorMessage;
+    this.response = errorMessage;
   }
 
   onUpdateEmail(event) {
     this.email = event.target.value;
-    this.emailValidationState = '';
-    this.helpBlock = '';
+    this.usernameValidationState = '';
+    this.response = '';
+  }
+  onUpdateDelta(event) {
+    this.delta = event.target.value;
+    this.usernameValidationState = '';
+    this.response = '';
   }
 
   onUpdatePassword(event) {
     this.password = event.target.value;
     this.passwordValidationState = '';
-    this.helpBlock = '';
+    this.response = '';
   }
 
   onInvalidEmail() {
-    this.emailValidationState = 'has-error';
-    this.helpBlock = 'Please enter an email.';
+    this.usernameValidationState = 'has-error';
+    this.response = 'Please enter an email.';
   }
 
   onInvalidPassword() {
     this.passwordValidationState = 'has-error';
-    this.helpBlock = 'Please enter a password.';
+    this.response = 'Please enter a password.';
   }
 }
 

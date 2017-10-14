@@ -8,19 +8,21 @@ class HomeActions {
       'updateDisplayName',
       'updatePassword',
       'updateEmail',
+      'updateDelta',
       'invalidDisplayName',
       'invalidPassword',
       'invalidEmail',
     );
   }
 
-  login(email) {
+  login(email, delta) {
     $.ajax({
       type: 'POST',
-      url: '/api/v1/getComments/' + email,
+      url: '/api/v1/getComments/' + email + '/' + delta,
     })
       .done((data) => {
-        this.actions.loginSuccess(data.message);
+        this.actions.loginSuccess(data);
+        console.log(data);
       })
       .fail((jqXhr) => {
         this.actions.loginFail(jqXhr.responseJSON.message);

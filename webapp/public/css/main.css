@@ -2787,7 +2787,7 @@ select[multiple].input-lg {
   height: 30px;
   line-height: 30px;
 }
-.has-success .help-block,
+.has-success .responseBlock,
 .has-success .control-label,
 .has-success .radio,
 .has-success .checkbox,
@@ -2815,7 +2815,7 @@ select[multiple].input-lg {
 .has-success .form-control-feedback {
   color: #3c763d;
 }
-.has-warning .help-block,
+.has-warning .responseBlock,
 .has-warning .control-label,
 .has-warning .radio,
 .has-warning .checkbox,
@@ -2843,7 +2843,7 @@ select[multiple].input-lg {
 .has-warning .form-control-feedback {
   color: #8a6d3b;
 }
-.has-error .help-block,
+.has-error .responseBlock,
 .has-error .control-label,
 .has-error .radio,
 .has-error .checkbox,
@@ -2877,7 +2877,13 @@ select[multiple].input-lg {
 .has-feedback label.sr-only ~ .form-control-feedback {
   top: 0;
 }
-.help-block {
+.responseBlock {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: #99a6ae;
+}
+.personalityProfile {
   display: block;
   margin-top: 5px;
   margin-bottom: 10px;
@@ -3581,6 +3587,19 @@ tbody.collapse.in {
 .pull-right > .dropdown-menu {
   right: 0;
   left: auto;
+}
+.comments, .personalityProfile {
+  display: block;
+  width: 100%;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  border-color: #cfdadc;
 }
 .dropup .caret,
 .navbar-fixed-bottom .dropdown .caret {
