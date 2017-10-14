@@ -21,9 +21,6 @@ module.exports = function(app) {
       r.getUser(req.params.user).getComments().then(comments => {
         var blob = comments.map(comment => comment.body).join("\n");
         //console.log(blob);
-        res.status(400).send({
-          message: 'User does not exist'
-        });
 
         var personality_insights = new PersonalityInsightsV3({
           username: app.config.watsonUsername,
@@ -77,6 +74,11 @@ module.exports = function(app) {
               
             }
         })
+      }).catch( err =>{
+        console.log("bad username");
+        res.status(404).send({
+          message: 'User not found'
+        });
       })
   })
 };
