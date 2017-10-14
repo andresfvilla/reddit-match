@@ -16,7 +16,7 @@ module.exports = {
     watsonVersion: process.env.watsonVersion,
     port: PORT,
     mongo: {
-        uri: process.env.MONGO_URL || 'mongodb://localhost/'
+        uri: process.env.MONGO_URL || 'mongodb://localhost/subreddit-personalities'
     },
     imageDest: "server/public/img/profiles/",
     url: URL
