@@ -32,7 +32,7 @@ bower_components
 .idea
 *.iml
 .DS_Store
-
+../.DS_Store
 # Compiled files
 # public/css/*
 client/stylesheets/*
