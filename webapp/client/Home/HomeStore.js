@@ -4,8 +4,8 @@ import HomeActions from './HomeActions';
 class HomeStore {
   constructor() {
     this.bindActions(HomeActions);
-    this.email = '';
-    this.delta = '';
+    this.username = '';
+    this.delta = '0.15';
     this.password = '';
     this.response = '';
     this.usernameValidationState = '';
@@ -23,8 +23,8 @@ class HomeStore {
     this.response = errorMessage;
   }
 
-  onUpdateEmail(event) {
-    this.email = event.target.value;
+  onUpdateUsername(event) {
+    this.username = event.target.value;
     this.usernameValidationState = '';
     this.response = '';
   }
@@ -40,9 +40,9 @@ class HomeStore {
     this.response = '';
   }
 
-  onInvalidEmail() {
+  onInvalidUsername() {
     this.usernameValidationState = 'has-error';
-    this.response = 'Please enter an email.';
+    this.response = 'Please enter an Username.';
   }
 
   onInvalidPassword() {

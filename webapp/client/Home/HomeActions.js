@@ -7,18 +7,18 @@ class HomeActions {
       'loginFail',
       'updateDisplayName',
       'updatePassword',
-      'updateEmail',
+      'updateUsername',
       'updateDelta',
       'invalidDisplayName',
       'invalidPassword',
-      'invalidEmail',
+      'invalidUsername',
     );
   }
 
-  login(email, delta) {
+  login(username, delta) {
     $.ajax({
       type: 'POST',
-      url: '/api/v1/getComments/' + email + '/' + delta,
+      url: '/api/v1/getComments/' + username + '/' + delta,
     })
       .done((data) => {
         this.actions.loginSuccess(data);

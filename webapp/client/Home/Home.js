@@ -32,9 +32,9 @@ class Home extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    var email = this.state.email;
+    var username = this.state.username;
     var delta = this.state.delta;
-    HomeActions.login(email, delta);
+    HomeActions.login(username, delta);
   }
 
   render() {
@@ -46,9 +46,9 @@ class Home extends React.Component {
           <form onSubmit={this.handleSubmit.bind(this)}>
             <div className={'form-group ' + this.state.usernameValidationState}>
               <label className='control-label'>Enter a Reddit username:</label>
-              <input type='password' className='form-control' ref='emailTextField' value={this.state.email}
-                      onChange={HomeActions.updateEmail} autoFocus/>
-              <label className='control-label'>Enter a confidence delta between 0 and 1</label>
+              <input type='password' className='form-control' ref='usernameTextField' value={this.state.username}
+                      onChange={HomeActions.updateUsername} autoFocus/>
+              <label className='control-label'>Enter a confidence delta between 0.0 and 1.0:</label>
               <input type='text' className='form-control' ref='deltaTextField' value={this.state.delta}
                       onChange={HomeActions.updateDelta} autoFocus/>
               <ResponseBlock response={this.state.response}/>
