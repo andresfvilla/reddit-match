@@ -2889,6 +2889,12 @@ select[multiple].input-lg {
   margin-bottom: 10px;
   color: #99a6ae;
 }
+.errorMessage {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: #d45959;
+}
 @media (min-width: 800px) {
   .form-inline .form-group {
     display: inline-block;
@@ -7316,8 +7322,8 @@ body {
 }
 footer {
   position: absolute;
-  /* bottom: -182px; */
-  bottom: 0;
+  bottom: -182px;
+  /* bottom: 0; */
   width: 100%;
   color: #fff;
   background-color: #3b3f51;

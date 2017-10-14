@@ -9,6 +9,14 @@ class ResponseBlock extends React.Component {
   render() {
     return (
       <div className='responseBlock'>
+        <div className='errorMessage'>
+        {
+          (!this.props.response.subreddits) ?
+            this.props.response
+          :
+            null
+        }
+        </div>
         {
           (this.props.response.subreddits) ?
             this.props.response.subreddits.map(subreddit => 
@@ -20,11 +28,21 @@ class ResponseBlock extends React.Component {
         }
         Analyzed comments:
         <div className='comments'>
-          {this.props.response.comments}
+          {
+            (this.props.response.comments) ?
+              this.props.response.comments
+            :
+              null
+          }
         </div>
         Personality profile:
         <div className='personalityProfile'>
-          {JSON.stringify(this.props.response.personality_profile,null,2)}
+          {
+            (this.props.response.personality_profile) ?
+              JSON.stringify(this.props.response.personality_profile,null,2)
+            :
+              null
+          }
         </div>
       </div>
     );

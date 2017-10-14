@@ -25,6 +25,7 @@ class HomeActions {
         console.log(data);
       })
       .fail((jqXhr) => {
+        console.log(jqXhr);
         this.actions.loginFail(jqXhr.responseJSON.message);
       });
   }
