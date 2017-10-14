@@ -21,6 +21,9 @@ module.exports = function(app) {
       r.getUser(req.params.user).getComments().then(comments => {
         var blob = comments.map(comment => comment.body).join("\n");
         //console.log(blob);
+        res.status(400).send({
+          message: 'User does not exist'
+        });
 
         var personality_insights = new PersonalityInsightsV3({
           username: app.config.watsonUsername,
@@ -38,9 +41,6 @@ module.exports = function(app) {
               var delta = 0;
 
               var callback = function(err, profiles){
-                if (err !=null) {
-                  console.log("WTF" + err)
-                }
                 if (profiles.length>0){
                   var subredditNames = profiles.map(profile => profile.subreddit)
                   res.json(
@@ -50,12 +50,9 @@ module.exports = function(app) {
                     "subreddits": subredditNames
                   })
                 } else {
-                  res.json(
-                  {
-                    "comments": blob,
-                    "personality_profile": response,
-                    "subreddits": []
-                  })
+                  res.status(400).send({
+                    message: 'No subreddits found within the current range, increase the delta'
+                  });
                 }
               };
               var delta = parseFloat(req.params.delta, 10);
