@@ -35,31 +35,7 @@ module.exports = function(app) {
             if (err)
               console.log('error:', err);
             else {
-              //console.log(JSON.stringify(response, null, 2));
               var delta = 0;
-              // profiles.find({}
-              // .where(profile.personality).elemMatch({ name: "Openness", percentile: { $gte: 0.9636302450714176 + delta} })
-              // // .where(profile.personality).elemMatch({ name: "Conscientiousness", percentile: { $gte: 0.11032620567355678 + delta} })
-              // // .where(profile.personality).elemMatch({ name: "Extraversion", percentile: { $gte: 0.18435366240952805 + delta} })
-              // // .where(profile.personality).elemMatch({ name: "Agreeableness", percentile: { $gte: 0.16256058158812636 + delta} })
-              // // .where(profile.personality).elemMatch({ name: "Emotional range", percentile: { $gte: 0.5150623817612303 + delta} })
-              //   // "profile.personality": { $elemMatch: { percentile: { $gte: 0.9636302450714176 + delta} } },
-              //   // "profile.personality.1": { $elemMatch: { percentile: { $gte: 0.11032620567355678 + delta} } },
-              //   // "profile.personality.2": { $elemMatch: { percentile: { $gte: 0.18435366240952805 + delta} } },
-              //   // "profile.personality.3": { $elemMatch: { percentile: { $gte: 0.16256058158812636 + delta} } } ,
-              //   // "profile.personality.4": { $elemMatch: { percentile: { $gte: 0.5150623817612303 + delta} } }
-              // //}
-              // , function(err, profiles){
-              //   if (err !=null) {
-              //     console.log("WTF" + err)
-              //   }
-              //   if (profiles.length>0){
-              //     var subredditNames = profiles.map(profile => profile.subreddit)
-              //     console.log('\nSUBREDDITS:' + subredditNames + "\n");
-              //   } else {
-              //     console.log('no results')
-              //   }
-              // });
 
               var callback = function(err, profiles){
                 if (err !=null) {
@@ -67,7 +43,6 @@ module.exports = function(app) {
                 }
                 if (profiles.length>0){
                   var subredditNames = profiles.map(profile => profile.subreddit)
-                  //console.log('\nSUBREDDITS:' + subredditNames + "\n");
                   res.json(
                   {
                     "comments": blob,
@@ -75,7 +50,12 @@ module.exports = function(app) {
                     "subreddits": subredditNames
                   })
                 } else {
-                  console.log('no results')
+                  res.json(
+                  {
+                    "comments": blob,
+                    "personality_profile": response,
+                    "subreddits": []
+                  })
                 }
               };
               var delta = parseFloat(req.params.delta, 10);
