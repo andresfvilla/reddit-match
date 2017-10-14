@@ -3594,7 +3594,7 @@ tbody.collapse.in {
   right: 0;
   left: auto;
 }
-.comments, .personalityProfile {
+.comments, .personalityProfile, .subreddits {
   display: block;
   width: 100%;
   padding: 6px 12px;
@@ -3606,6 +3606,7 @@ tbody.collapse.in {
   border: 1px solid #ccc;
   border-radius: 2px;
   border-color: #cfdadc;
+  margin-bottom: 10px;
 }
 .dropup .caret,
 .navbar-fixed-bottom .dropdown .caret {
