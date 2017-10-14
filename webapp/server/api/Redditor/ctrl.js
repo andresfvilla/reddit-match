@@ -32,8 +32,12 @@ module.exports = function(app) {
             text: blob,
           },
           function (err, response) {
-            if (err)
+            if (err){
               console.log('error:', err);
+              res.status(400).send({
+                    message: 'Not enough comments to produce meaningful data'
+                  });
+            }
             else {
               var delta = 0;
 
