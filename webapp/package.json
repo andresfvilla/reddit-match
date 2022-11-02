@@ -47,7 +47,7 @@
     "fs": "0.0.1-security",
     "fstream": "^1.0.10",
     "gridfs-stream": "^1.1.1",
-    "gulp": "^3.9.0",
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-concat": "^2.6.0",
     "gulp-cssmin": "^0.1.7",
